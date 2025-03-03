@@ -1,0 +1,33 @@
+name: flutter_music_player
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  get: ^4.7.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/img/
+  fonts:
+    - family: Circular Std
+      fonts:
+        - asset: assets/fonts/CircularStd-Book.otf
+        - asset: assets/fonts/CircularStd-Medium.otf
+          weight: 600
+        - asset: assets/fonts/CircularStd-Bold.otf
+          weight: 700
+        - asset: assets/fonts/CircularStd-Black.otf
+          weight: 800
