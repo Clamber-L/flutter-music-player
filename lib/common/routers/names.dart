@@ -1,4 +1,4 @@
-
 class RouteNames {
-  static const main = '/';
+  static const mainTabView = '/main_tab_view';
+  static const splashView = '/splash_view';
 }

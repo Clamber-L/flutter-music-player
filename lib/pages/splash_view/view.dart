@@ -14,7 +14,12 @@ class SplashViewPage extends GetView<SplashViewController> {
       init: SplashViewController(),
       id: "splash_view",
       builder: (_) {
-        return Center(child: Image.asset('assets/img/app_logo.png', width: media.width * 0.35));
+        return Center(
+          child: Image.asset(
+            'assets/img/app_logo.png',
+            width: media.width * 0.35,
+          ),
+        );
       },
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_music_player/pages/main_tab_view/state.dart';
 import 'package:get/get.dart';
 
-import 'index.dart';
-
-class MainTabViewController extends GetxController with GetSingleTickerProviderStateMixin {
+class MainTabViewController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   final state = MainTabViewState();
 
   MainTabViewController();
