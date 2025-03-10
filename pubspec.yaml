@@ -13,6 +13,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.7.2
   json_annotation: ^4.9.0
+  dio: ^5.8.0+1
+  pretty_dio_logger: ^1.4.0
 
 dev_dependencies:
   flutter_test:

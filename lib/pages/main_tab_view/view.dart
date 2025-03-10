@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_music_player/common/net/http.dart';
 import 'package:flutter_music_player/pages/main_tab_view/controller.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +13,29 @@ class MainTabViewPage extends StatelessWidget {
       body: TabBarView(
         controller: controller.tabController,
         children: [
-          Container(color: Colors.red),
+          Container(
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Center(
+                    child: CloseButton(
+                      color: Colors.blueAccent,
+                      onPressed: () {
+                        Http.get("/one")
+                            .then((res) {
+                              print("res -> $res");
+                            })
+                            .catchError((error) {
+                              var mes = error.error;
+                              print('#### => $mes');
+                            });
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Container(color: Colors.green),
           Container(color: Colors.blue),
         ],

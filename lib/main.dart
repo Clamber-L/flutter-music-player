@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      navigatorObservers: [CacheManager.observer],
       title: 'Music Player',
       debugShowCheckedModeBanner: false,
       getPages: RoutePages.list,
