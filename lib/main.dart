@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player/common/index.dart';
-import 'package:flutter_music_player/pages/main_tab_view/bindings.dart';
 import 'package:get/get.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-library splash_view;
+library;
 
 export './controller.dart';
 export './view.dart';

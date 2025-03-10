@@ -22,21 +22,21 @@ class MainTabViewPage extends StatelessWidget {
           return TabBar(
             controller: controller.tabController,
             tabs: [
-              BarIcon(
+              _barIcon(
                 "Home",
                 controller,
                 0,
                 'assets/img/home_tab.png',
                 'assets/img/home_tab_un.png',
               ),
-              BarIcon(
+              _barIcon(
                 "Songs",
                 controller,
                 1,
                 'assets/img/songs_tab.png',
                 'assets/img/songs_tab_un.png',
               ),
-              BarIcon(
+              _barIcon(
                 "Settings",
                 controller,
                 2,
@@ -51,7 +51,7 @@ class MainTabViewPage extends StatelessWidget {
   }
 }
 
-Widget BarIcon(
+Widget _barIcon(
   String text,
   MainTabViewController controller,
   int index,
