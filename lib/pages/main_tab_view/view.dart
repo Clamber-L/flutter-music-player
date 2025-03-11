@@ -63,35 +63,56 @@ class MainTabViewPage extends StatelessWidget {
           Container(color: Colors.blue),
         ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Obx(() {
-          return TabBar(
-            controller: controller.tabController,
-            tabs: [
-              _barIcon(
-                "Home",
-                controller,
-                0,
-                'assets/img/home_tab.png',
-                'assets/img/home_tab_un.png',
-              ),
-              _barIcon(
-                "Songs",
-                controller,
-                1,
-                'assets/img/songs_tab.png',
-                'assets/img/songs_tab_un.png',
-              ),
-              _barIcon(
-                "Settings",
-                controller,
-                2,
-                'assets/img/setting_tab.png',
-                'assets/img/setting_tab_un.png',
-              ),
-            ],
-          );
-        }),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: TColor.bg,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              blurRadius: 5,
+              offset: Offset(0, -3),
+            ),
+          ],
+        ),
+        child: BottomAppBar(
+          height: 60,
+          color: Colors.transparent,
+          elevation: 0,
+          child: Obx(() {
+            return TabBar(
+              controller: controller.tabController,
+              indicatorColor: Colors.transparent,
+              indicatorWeight: 1,
+              labelColor: TColor.primary,
+              labelStyle: const TextStyle(fontSize: 10),
+              unselectedLabelColor: TColor.unfocused,
+              unselectedLabelStyle: const TextStyle(fontSize: 10),
+              tabs: [
+                _barIcon(
+                  "Home",
+                  controller,
+                  0,
+                  'assets/img/home_tab.png',
+                  'assets/img/home_tab_un.png',
+                ),
+                _barIcon(
+                  "Songs",
+                  controller,
+                  1,
+                  'assets/img/songs_tab.png',
+                  'assets/img/songs_tab_un.png',
+                ),
+                _barIcon(
+                  "Settings",
+                  controller,
+                  2,
+                  'assets/img/setting_tab.png',
+                  'assets/img/setting_tab_un.png',
+                ),
+              ],
+            );
+          }),
+        ),
       ),
     );
   }
@@ -108,8 +129,8 @@ Widget _barIcon(
     text: text,
     icon: Image.asset(
       controller.selected.value == index ? tabImg : unTabImg,
-      width: 25,
-      height: 25,
+      width: 18,
+      height: 18,
     ),
   );
 }
