@@ -15,7 +15,7 @@ dependencies:
   json_annotation: ^4.9.0
   dio: ^5.8.0+1
   pretty_dio_logger: ^1.4.0
-
+  flutter_switch: ^0.3.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

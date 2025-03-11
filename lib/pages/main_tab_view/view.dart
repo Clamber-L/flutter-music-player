@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_music_player/common/net/http.dart';
+import 'package:flutter_music_player/common/index.dart';
+import 'package:flutter_music_player/common/widgets/group_setting.dart';
 import 'package:flutter_music_player/pages/main_tab_view/controller.dart';
 import 'package:get/get.dart';
 
@@ -13,30 +14,52 @@ class MainTabViewPage extends StatelessWidget {
       body: TabBarView(
         controller: controller.tabController,
         children: [
-          Container(
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Center(
-                    child: CloseButton(
-                      color: Colors.blueAccent,
-                      onPressed: () {
-                        Http.get("/one")
-                            .then((res) {
-                              print("res -> $res");
-                            })
-                            .catchError((error) {
-                              var mes = error.error;
-                              print('#### => $mes');
-                            });
-                      },
-                    ),
-                  ),
-                ),
-              ],
+          SafeArea(
+            child: Center(
+              child: Button(
+                width: 300,
+                color: Colors.purple,
+                text: "我是按钮",
+                icon: Icon(Icons.home),
+                onTap: () {
+                  Http.get("/one")
+                      .then((res) {
+                        print("res -> $res");
+                      })
+                      .catchError((error) {
+                        var mes = error.error;
+                        print('#### => $mes');
+                      });
+                },
+              ),
             ),
           ),
-          Container(color: Colors.green),
+          GroupSetting(
+            children: <Item>[
+              Item.leading("hello world"),
+              Item.customize(
+                Container(
+                  alignment: Alignment.center,
+                  height: 100,
+                  color: Colors.blue,
+                  child: Text("第一项自定义"),
+                ),
+              ),
+              Item.spacer(10),
+              Item.text(
+                title: "账号与安全",
+                icon: Icon(Icons.tiktok),
+                subtitle: "账号与安全子标题",
+                description: "这里是描述信息",
+              ),
+              Item.switcher(title: "switcher"),
+              Item.spacer(),
+              Item.notification(
+                title: "notification",
+                onTap: () => Get.snackbar("title", "message"),
+              ),
+            ],
+          ),
           Container(color: Colors.blue),
         ],
       ),
