@@ -4,7 +4,7 @@ class UserApi extends BaseApi<User> {
   UserApi() : super(User.fromJson, prefix: "/flutter");
 
   Future<User> getOne() {
-    return api.get("$prefix/one1");
+    return api.get("$prefix/one");
   }
 
   Future<List<User>> getAllUsers() {
