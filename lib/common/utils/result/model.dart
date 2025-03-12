@@ -7,6 +7,8 @@ abstract class Model<T extends Model<T>> {
 
   Map<String, dynamic> toJson();
 
+  String get id => "0";
+
   @override
   String toString() => json.encode(this);
 }

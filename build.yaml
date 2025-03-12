@@ -8,7 +8,7 @@ targets:
       json_serializable:
         options:
           any_map: false
-          checked: true
+          checked: false
           constructor: ""
           create_factory: true
           create_field_map: false

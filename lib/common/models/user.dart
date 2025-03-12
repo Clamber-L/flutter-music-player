@@ -6,16 +6,17 @@ part 'generated/user.g.dart';
 
 @JsonSerializable(converters: [DatetimeConverterTimestamp()])
 class User extends Model<User> {
+  @override
   final String id;
   final String username;
-  final String nickname;
-  final DateTime createAt;
+  final String? nickname;
+  final DateTime? createAt;
 
   const User({
     required this.id,
     required this.username,
-    required this.nickname,
-    required this.createAt,
+    this.nickname,
+    this.createAt,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

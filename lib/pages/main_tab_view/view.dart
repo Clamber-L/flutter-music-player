@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player/common/index.dart';
 import 'package:flutter_music_player/common/widgets/group_setting.dart';
+import 'package:flutter_music_player/common/widgets/status_view.dart';
 import 'package:flutter_music_player/pages/main_tab_view/controller.dart';
 import 'package:get/get.dart';
 
 class MainTabViewPage extends StatelessWidget {
   MainTabViewPage({super.key});
+
   final MainTabViewController controller = Get.put(MainTabViewController());
 
   @override
@@ -19,17 +21,10 @@ class MainTabViewPage extends StatelessWidget {
               child: Button(
                 width: 300,
                 color: Colors.purple,
-                text: "我是按钮",
+                text: controller.state.text,
                 icon: Icon(Icons.home),
                 onTap: () {
-                  Http.get("/one")
-                      .then((res) {
-                        print("res -> $res");
-                      })
-                      .catchError((error) {
-                        var mes = error.error;
-                        print('#### => $mes');
-                      });
+                  controller.oneUser();
                 },
               ),
             ),
@@ -60,7 +55,15 @@ class MainTabViewPage extends StatelessWidget {
               ),
             ],
           ),
-          Container(color: Colors.blue),
+          StatusView(
+            retry: controller.loading,
+            controller: controller.statusViewController,
+            status: Status.NETWORK_ERROR,
+            builder:
+                (context) => const Center(
+                  child: Text("测试页面", style: TextStyle(color: Colors.blue)),
+                ),
+          ),
         ],
       ),
       bottomNavigationBar: Container(
@@ -128,7 +131,7 @@ Widget _barIcon(
   return Tab(
     text: text,
     icon: Image.asset(
-      controller.selected.value == index ? tabImg : unTabImg,
+      controller.state.selected.value == index ? tabImg : unTabImg,
       width: 18,
       height: 18,
     ),

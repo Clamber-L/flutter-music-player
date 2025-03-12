@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 class Constants {
   // 服务 api
   static const baseUrl =
-      'https://mock.presstime.cn/mock/67ce5210ec85d3a70783775f/flutter';
+      'https://mock.presstime.cn/mock/67ce5210ec85d3a70783775f';
 
   // 服务端返回状态码(成功)
   static const successCode = 200;
