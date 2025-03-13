@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_music_player/common/index.dart';
 import 'package:flutter_music_player/common/widgets/group_setting.dart';
-import 'package:flutter_music_player/common/widgets/status_view.dart';
+import 'package:flutter_music_player/pages/home_page/view.dart';
 import 'package:flutter_music_player/pages/main_tab_view/controller.dart';
 import 'package:get/get.dart';
 
@@ -16,17 +16,22 @@ class MainTabViewPage extends StatelessWidget {
       body: TabBarView(
         controller: controller.tabController,
         children: [
+          HomePage(),
           SafeArea(
-            child: Center(
-              child: Button(
-                width: 300,
-                color: Colors.purple,
-                text: controller.state.text,
-                icon: Icon(Icons.home),
-                onTap: () {
-                  controller.oneUser();
-                },
-              ),
+            child: GetBuilder<MainTabViewController>(
+              builder: (logic) {
+                return Center(
+                  child: Button(
+                    width: 300,
+                    color: Colors.purple,
+                    text: controller.state.text,
+                    icon: Icon(Icons.home),
+                    onTap: () {
+                      controller.oneUser();
+                    },
+                  ),
+                );
+              },
             ),
           ),
           GroupSetting(
@@ -55,15 +60,15 @@ class MainTabViewPage extends StatelessWidget {
               ),
             ],
           ),
-          StatusView(
-            retry: controller.loading,
-            controller: controller.statusViewController,
-            status: Status.NETWORK_ERROR,
-            builder:
-                (context) => const Center(
-                  child: Text("测试页面", style: TextStyle(color: Colors.blue)),
-                ),
-          ),
+          // StatusView(
+          //   retry: controller.loading,
+          //   controller: controller.statusViewController,
+          //   status: Status.NETWORK_ERROR,
+          //   builder:
+          //       (context) => const Center(
+          //     child: Text("测试页面", style: TextStyle(color: Colors.blue)),
+          //   ),
+          // ),
         ],
       ),
       bottomNavigationBar: Container(
